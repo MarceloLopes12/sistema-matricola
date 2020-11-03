@@ -12,11 +12,6 @@ module.exports = {
         updated_at: new Date(),
       },
       {
-        title: 'Psicologia',
-        created_at: new Date(),
-        updated_at: new Date(),
-      },
-      {
         title: 'Administração',
         created_at: new Date(),
         updated_at: new Date(),

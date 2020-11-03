@@ -15,19 +15,6 @@ module.exports = {
         created_at: new Date(),
         updated_at: new Date(),
       },
-      {
-        name: 'Campus Canoas',
-        address: 'R. Santos Dumont, 888 - Niterói, Canoas - RS, 92120-110',
-        created_at: new Date(),
-        updated_at: new Date(),
-      },
-      {
-        name: 'Campus Iguatemi',
-        address:
-          'Av. João Wallig, 1800 - Passo d Areia, Porto Alegre - RS, 91340-000',
-        created_at: new Date(),
-        updated_at: new Date(),
-      },
     ]);
   },
 
