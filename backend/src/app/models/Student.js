@@ -36,6 +36,14 @@ class Student extends Model {
   checkPassowrd(password) {
     return bcrypt.compare(password, this.password_hash);
   }
+
+  static associate(models) {
+    this.belongsToMany(models.Discipline, {
+      through: 'StudentDiscipline',
+      as: 'discipline',
+      foreignKey: 'id_student',
+    });
+  }
 }
 
 export default Student;
