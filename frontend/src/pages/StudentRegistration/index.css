@@ -1,0 +1,10 @@
+.buttons-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-flow: space-between;
+}
+
+.buttons-container button:first-child {
+  margin-right: 10px;
+}
