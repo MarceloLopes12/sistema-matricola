@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.createTable('students', {
@@ -25,10 +23,6 @@ module.exports = {
       },
       password_hash: {
         type: Sequelize.STRING,
-        allowNull: false,
-      },
-      date_of_birth: {
-        type: Sequelize.DATE,
         allowNull: false,
       },
       registration: {

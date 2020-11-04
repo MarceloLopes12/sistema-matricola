@@ -10,7 +10,6 @@ class Student extends Model {
         cpf: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,
-        date_of_birth: Sequelize.DATE,
         registration: Sequelize.INTEGER,
       },
       {
