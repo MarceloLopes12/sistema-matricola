@@ -1,10 +1,10 @@
 import Sequelize, { Model } from 'sequelize';
 
-class CourseDiscipline extends Model {
+class StudentDiscipline extends Model {
   static init(sequelize) {
     super.init(
       {
-        id_course: Sequelize.INTEGER,
+        id_student: Sequelize.INTEGER,
         id_discipline: Sequelize.INTEGER,
       },
       { sequelize }
@@ -14,7 +14,7 @@ class CourseDiscipline extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Course, { foreignKey: 'id_course', as: 'course' });
+    this.belongsTo(models.Student, { foreignKey: 'id_student', as: 'student' });
     this.belongsTo(models.Discipline, {
       foreignKey: 'id_discipline',
       as: 'discipline',
@@ -22,4 +22,4 @@ class CourseDiscipline extends Model {
   }
 }
 
-export default CourseDiscipline;
+export default StudentDiscipline;

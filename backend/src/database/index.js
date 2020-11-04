@@ -5,10 +5,18 @@ import Course from '../app/models/Course';
 import Discipline from '../app/models/Discipline';
 import Campus from '../app/models/Campus';
 import CourseDiscipline from '../app/models/CourseDiscipline';
+import StudentDisciplie from '../app/models/StudentDiscipline';
 
 import databaseConfig from '../config/database';
 
-const models = [Student, Course, Discipline, Campus, CourseDiscipline];
+const models = [
+  Student,
+  Course,
+  Discipline,
+  Campus,
+  CourseDiscipline,
+  StudentDisciplie,
+];
 
 class Database {
   constructor() {
