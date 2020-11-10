@@ -24,6 +24,13 @@ class Discipline extends Model {
       through: 'StudentDiscipline',
       as: 'student',
       foreignKey: 'id_discipline',
+      otherKey: 'id_student',
+    });
+    this.belongsToMany(models.Professor, {
+      through: 'ProfessorDiscipline',
+      as: 'professor',
+      foreignKey: 'id_discipline',
+      otherKey: 'id_professor',
     });
   }
 }

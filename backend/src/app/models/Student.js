@@ -41,6 +41,7 @@ class Student extends Model {
       through: 'StudentDiscipline',
       as: 'discipline',
       foreignKey: 'id_student',
+      otherKey: 'id_discipline',
     });
   }
 }
