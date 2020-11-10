@@ -12,12 +12,13 @@ class Discipline extends Model {
     return this;
   }
 
-  static assoacite(models) {
+  static associate(models) {
     this.belongsTo(models.Campus, { foreignKey: 'id_campus', as: 'campus' });
     this.belongsToMany(models.Course, {
       through: 'CourseDiscipline',
       as: 'course',
       foreignKey: 'id_discipline',
+      otherKey: 'id_course',
     });
     this.belongsToMany(models.Student, {
       through: 'StudentDiscipline',

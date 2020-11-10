@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('courses_disciplines', [
+    await queryInterface.bulkInsert('course_disciplines', [
       // Ciência da computação
       {
         id_course: 1,
@@ -372,6 +372,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('courses_disciplines', null, {});
+    return queryInterface.bulkDelete('course_disciplines', null, {});
   },
 };

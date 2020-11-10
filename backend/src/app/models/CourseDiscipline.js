@@ -4,8 +4,22 @@ class CourseDiscipline extends Model {
   static init(sequelize) {
     super.init(
       {
-        id_course: Sequelize.INTEGER,
-        id_discipline: Sequelize.INTEGER,
+        id_course: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'Course',
+            key: 'id',
+          },
+        },
+        id_discipline: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'Discipline',
+            key: 'id',
+          },
+        },
       },
       { sequelize }
     );

@@ -17,6 +17,7 @@ class Course extends Model {
       through: 'CourseDiscipline',
       as: 'discipline',
       foreignKey: 'id_course',
+      otherKey: 'id_discipline',
     });
   }
 }
