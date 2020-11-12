@@ -4,6 +4,7 @@ import StudentController from './app/controllers/StudentController';
 import SessionController from './app/controllers/SessionController';
 import CourseController from './app/controllers/CourseController';
 import DisciplineController from './app/controllers/DisciplineController';
+import RegistrationController from './app/controllers/RegistrationController';
 
 const routes = new Router();
 
@@ -16,5 +17,10 @@ routes.get('/courses', CourseController.index);
 
 // Disciplines by course
 routes.get('/disciplinesByCourse', DisciplineController.show);
+
+// Registrations
+routes.post('/registrations', RegistrationController.store);
+routes.get('/registrations', RegistrationController.index);
+routes.get('/registrations/:idStudent', RegistrationController.show);
 
 export default routes;
