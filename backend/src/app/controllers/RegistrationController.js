@@ -1,5 +1,3 @@
-import { QueryTypes } from 'sequelize';
-
 import Discipline from '../models/Discipline';
 import Campus from '../models/Campus';
 import Class from '../models/Class';
