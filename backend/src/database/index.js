@@ -5,6 +5,7 @@ import Course from '../app/models/Course';
 import Discipline from '../app/models/Discipline';
 import Campus from '../app/models/Campus';
 import Professor from '../app/models/Professor';
+import Class from '../app/models/Class';
 import CourseDiscipline from '../app/models/CourseDiscipline';
 import StudentDisciplie from '../app/models/StudentDiscipline';
 import ProfessorDisciplie from '../app/models/ProfessorDiscipline';
@@ -17,6 +18,7 @@ const models = [
   Discipline,
   Campus,
   Professor,
+  Class,
   CourseDiscipline,
   StudentDisciplie,
   ProfessorDisciplie,
