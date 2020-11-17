@@ -43,7 +43,7 @@ class RegistrationController {
         }
       }
 
-      if (count - 1 === index) {
+      if (asyncCounter - 1 === index) {
         if (invalidIncidences.length > 0) {
           return res.status(400).json({
             error:
