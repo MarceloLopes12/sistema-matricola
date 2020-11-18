@@ -3,6 +3,7 @@ import { Button, Input } from "reactstrap";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
+import { Link } from "react-router-dom";
 
 function StudentRegistration() {
   const validationSchema = yup.object().shape({
@@ -34,6 +35,7 @@ function StudentRegistration() {
 
   return (
     <>
+      <h1>Cadastre-se</h1>
       <Formik
         validationSchema={validationSchema}
         initialValues={initialValues}
@@ -83,7 +85,16 @@ function StudentRegistration() {
               errorMessage={touched.password && errors.password}
               required
             />
-
+            <Input
+              name="cpf"
+              label="Digite o cpf"
+              value={values.cpf}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              errorMessage={touched.cpf && errors.cpf}
+              mask=""
+              required
+            />
             <Input
               name="passwordConfirmation"
               type="password"
@@ -97,16 +108,12 @@ function StudentRegistration() {
               required
             />
 
-            <Input
-              name="cpf"
-              label="Defina uma senha"
-              value={values.cpf}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.cpf && errors.cpf}
-              required
-            />
             <div className="buttons-container">
+              <p>
+                <Link to={"/login-estudante"}>
+                  Já tem uma conta? Faça Login{" "}
+                </Link>
+              </p>
               <Button
                 type="submit"
                 disabled={!isValid || isSubmitting}

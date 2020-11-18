@@ -9,7 +9,7 @@ function Homepage() {
       <p className="lead">
         É um sistema de matrícula para alunos e professores. Que visa facilitar
         e agilizar a forma de se contactar com a instituição.{" "}
-        <Link to={"/register"}>Cadastre-se </Link> ou faça
+        <Link to={"/registro-estudante"}>Cadastre-se </Link> ou faça <Link to={"/login-estudante"}>Login</Link>
       </p>
     </Jumbotron>
   );
