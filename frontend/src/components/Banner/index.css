@@ -1,0 +1,43 @@
+div-banner{
+  position: relative;
+ }
+   
+ .title{
+     position: absolute; 
+     top:20%;
+     margin-left: 20%;
+     margin-right: 20%;
+     text-align: center;
+     color:white;
+     
+   }
+   .font{
+       font-size: 42px;
+       
+   }
+   
+   @media only screen  and (max-width:739px){
+     .font{
+      
+       font-size: 26px;
+     }
+     .title{
+       top:5%;
+     }
+   }
+   @media only screen and (min-width:740px) and (max-width:1025px){
+     .font{
+        font-size:36px;
+     }
+        .title{
+         top:10%;
+       }
+     
+ 
+ }
+ 
+ .img-banner{
+     display: flex;
+     width: 100%;
+ 
+ }

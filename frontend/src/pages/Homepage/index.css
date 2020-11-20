@@ -1,0 +1,31 @@
+.flex-box {
+  display: flexbox;
+  justify-content: center;
+}
+.container-box {
+  height: 100%;
+}
+.content-box {
+  font-family: "Montserrat", sans-serif;
+  /* background-color: #ffffff; */
+  position: absolute;
+  top: 30%;
+  background-color: gray;
+  height: 50%;
+  border-radius: 20px;
+  opacity: 70%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.font {
+  color: #ffffff;
+  line-height: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+.font-link-style {
+  font-weight: bold;
+  text-decoration: none;
+}
