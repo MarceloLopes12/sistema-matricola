@@ -4,7 +4,8 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
-
+import "../StudentRegistration/index.css";
+import BannerBackground from "../../components/Banner";
 function StudentRegistration() {
   const validationSchema = yup.object().shape({
     fullName: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -35,86 +36,99 @@ function StudentRegistration() {
 
   return (
     <>
-      <h1>Cadastre-se</h1>
-      <Formik
-        validationSchema={validationSchema}
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-      >
-        {({
-          values,
-          setFieldValue,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-          isValid,
-        }) => (
-          <form onSubmit={handleSubmit} noValidate>
-            <Input
-              name="email"
-              type="email"
-              label="Informe seu email"
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.email && errors.email}
-              required
-            />
+      <BannerBackground />
+      <div className="flex-box container-box">
+        <Formik
+          validationSchema={validationSchema}
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+        >
+          {({
+            values,
+            setFieldValue,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+            isValid,
+          }) => (
+            <form className="content-box font-registration" onSubmit={handleSubmit} noValidate>
+              <h1>Cadastre-se</h1>
+              <br />
+              <Input
+                className="inputs-registration"
+                name="email"
+                type="email"
+                label="Informe seu email"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.email && errors.email}
+                required
+              />
+              <br />
+              <br />
 
-            <Input
-              name="fullName"
-              type="text"
-              label="Defina um usuário"
-              value={values.fullName}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.fullName && errors.fullName}
-              required
-            />
+              <Input
+                className="inputs-registration"
+                name="fullName"
+                type="text"
+                label="Defina um usuário"
+                value={values.fullName}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.fullName && errors.fullName}
+                required
+              />
+              <br />
+              <br />
 
-            <Input
-              name="password"
-              type="password"
-              label="Defina uma senha"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.password && errors.password}
-              required
-            />
-            <Input
-              name="cpf"
-              label="Digite o cpf"
-              value={values.cpf}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.cpf && errors.cpf}
-              mask=""
-              required
-            />
-            <Input
-              name="passwordConfirmation"
-              type="password"
-              label="Confirme uma senha"
-              value={values.passwordConfirmation}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={
-                touched.passwordConfirmation && errors.passwordConfirmation
-              }
-              required
-            />
+              <Input
+                className="inputs-registration"
+                name="password"
+                type="password"
+                label="Defina uma senha"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.password && errors.password}
+                required
+              />
+              <br />
+              <br />
+              <Input
+                className="inputs-registration"
+                name="cpf"
+                label="Digite o cpf"
+                value={values.cpf}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.cpf && errors.cpf}
+                mask=""
+                required
+              />
+              <br />
+              <br />
+              <Input
+                className="inputs-registration"
+                name="passwordConfirmation"
+                type="password"
+                label="Confirme uma senha"
+                value={values.passwordConfirmation}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={
+                  touched.passwordConfirmation && errors.passwordConfirmation
+                }
+                required
+              />
+              <br />
+              <br />
 
-            <div className="buttons-container">
-              <p>
-                <Link to={"/login-estudante"}>
-                  Já tem uma conta? Faça Login{" "}
-                </Link>
-              </p>
               <Button
+                className="button-registration"
                 type="submit"
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
@@ -122,10 +136,19 @@ function StudentRegistration() {
               >
                 Cadastrar
               </Button>
-            </div>
-          </form>
-        )}
-      </Formik>
+
+              <p>
+                <Link
+                  className="font-link-style-registration"
+                  to={"/login-estudante"}
+                >
+                  Já tem uma conta? Faça Login{" "}
+                </Link>
+              </p>
+            </form>
+          )}
+        </Formik>
+      </div>
     </>
   );
 }

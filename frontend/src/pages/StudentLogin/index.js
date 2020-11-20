@@ -1,9 +1,11 @@
 import React from "react";
-import { Button, Input } from "reactstrap";
+import { Button, Input, Label } from "reactstrap";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
+import BannerBackground from "../../components/Banner";
+import "../StudentLogin/index.css";
 
 function StudentRegistration() {
   const validationSchema = yup.object().shape({
@@ -25,59 +27,71 @@ function StudentRegistration() {
 
   return (
     <>
-      <h1>Login</h1>
-      <Formik
-        validationSchema={validationSchema}
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-      >
-        {({
-          values,
-          setFieldValue,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-          isValid,
-        }) => (
-          <form  className="inputs" onSubmit={handleSubmit} noValidate>
-            <Input
-              name="cpf"
-              label="Digite sua senha"
-              value={values.cpf}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.cpf && errors.cpf}
-              required
-            />
-            <Input
-              name="password"
-              type="password"
-              label="Senha"
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.password && errors.password}
-              required
-            />
-            <p>
-            <Link to={"/registro-estudante"}> Não tem conta? Cadastre-se</Link>
-            </p>
-            <div className="buttons-container">
-              <Button
-                type="submit"
-                disabled={!isValid || isSubmitting}
-                appearance="primary"
-                block
-              >
-                Entrar
+      <BannerBackground />
+      <div className="flex-box container-box">
+        <Formik
+          validationSchema={validationSchema}
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+        >
+          {({
+            values,
+            setFieldValue,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+            isValid,
+          }) => (
+            <form className=" content-box font-student" onSubmit={handleSubmit} noValidate>
+              <h1>Login</h1>
+              <br />
+              <h2>CPF</h2>{" "}
+              <Input
+                className="inputs"
+                name="cpf"
+                value={values.cpf}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.cpf && errors.cpf}
+                required
+              />
+              <br />
+              <br />
+              <h2>Senha</h2>{" "}
+              <Input
+                className="inputs"
+                name="password"
+                type="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.password && errors.password}
+                required
+              />
+              <br />
+              <br />
+              <Button variant="primary" size="lg"
+               className="button"
+               type="submit"
+               disabled={!isValid || isSubmitting}
+               appearance="primary"
+               block>
+                Entrat
               </Button>
-            </div>
-          </form>
-        )}
-      </Formik>
+              
+              <p>
+                <Link className="font-link-style" to={"/registro-estudante"}>
+                  {" "}
+                  Não tem conta? Cadastre-se
+                </Link>
+              </p>
+            </form>
+          )}
+        </Formik>
+      </div>
     </>
   );
 }
