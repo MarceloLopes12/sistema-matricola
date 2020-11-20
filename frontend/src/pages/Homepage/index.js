@@ -10,7 +10,7 @@ function Homepage() {
     <>
       <BannerBackground />
       <div className="flex-box container-box">
-        <Jumbotron className="content-box font">
+        <Jumbotron className="content-box font-homepage">
           <p>
             É um sistema de matrícula para alunos e professores. Que visa
             facilitar e agilizar a forma de se contactar com a instituição.{" "}
@@ -25,7 +25,7 @@ function Homepage() {
         </Jumbotron>
       </div>
 
-      <Jumbotron></Jumbotron>
+      
     </>
   );
 }

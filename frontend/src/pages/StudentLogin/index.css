@@ -2,20 +2,23 @@
   display: flexbox;
   justify-content: center;
 }
+.font-student {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 30px;
+}
 .container-box {
   height: 100%;
   }
 .content-box {
   color: #ffffff;
-  
+  opacity: 70%;
   background-color:gray;
-  
-  height: 68%;
+  /* height: 57%; */
   width: 50%;
   text-align: center;
 }
 
-.inputs-registration {
+.inputs {
   background-color: #ffffff;
   width: 70%;
   height: 50px;
@@ -24,17 +27,13 @@
 }
 
 
-.font-link-style-registration {
+.font-link-style {
   color: #333A56;
   font-weight: bolder;
   text-decoration: none;
 }
-.font-registration {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 30px;
-}
 
-.button-registration {
+.button {
   width: 30%;
   height: 10%;
   font-weight: bolder;

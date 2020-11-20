@@ -8,7 +8,7 @@ function BannerBackground() {
       
       <img alt="Matriculando" className="img-banner" fixed="top" src={Banner} />
       <div className="title">
-        <h1 className="font">Matriculando</h1>
+        <h1 className="font-banner">Mλtriculando</h1>
       </div>
     </div>
   );
