@@ -6,7 +6,13 @@ import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
 import "../StudentRegistration/index.css";
 import BannerBackground from "../../components/Banner";
+import { useCreateStudent } from "../../api/UseCreateStudent";
+
+
 function StudentRegistration() {
+  
+  const createStudent = useCreateStudent();
+  
   const validationSchema = yup.object().shape({
     fullName: yup.string().required(ERRORS.REQUIRED_FIELD),
     email: yup.string().email().required(ERRORS.REQUIRED_FIELD),
@@ -25,11 +31,25 @@ function StudentRegistration() {
     cpf: "",
   };
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    window.sessionStorage.setItem("user", values.username);
-    window.sessionStorage.setItem("password", values.password);
-    window.sessionStorage.setItem("email", values.email);
-    window.sessionStorage.setItem("cpf", values.cpf);
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    
+    const { fullName, password, email, cpf } = values;
+
+    console.log(fullName);
+
+    const user = await createStudent.creater(fullName, email, cpf, password);
+    
+    localStorage.setItem("user", JSON.stringify({
+      id : user.id,
+      name: user.name,
+      email: user.email,
+      registration: user.registration
+    }));
+    
+    //window.sessionStorage.setItem("user", values.username);
+    //window.sessionStorage.setItem("password", values.password);
+    //window.sessionStorage.setItem("email", values.email);
+    //window.sessionStorage.setItem("cpf", values.cpf);
     resetForm(initialValues);
     setSubmitting(false);
   };
