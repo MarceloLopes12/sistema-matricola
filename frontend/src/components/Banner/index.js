@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../../images/banner.png";
 import "../Banner/index.css";
+import { Link } from "react-router-dom";
 
 function BannerBackground() {
   return (
@@ -8,7 +9,7 @@ function BannerBackground() {
       
       <img alt="Matriculando" className="img-banner" fixed="top" src={Banner} />
       <div className="title">
-        <h1 className="font-banner">Mλtriculando</h1>
+       <Link className="font-link" to={"/Homepage"}> <h1 className="font-banner">Mλtriculando</h1> </Link>
       </div>
     </div>
   );

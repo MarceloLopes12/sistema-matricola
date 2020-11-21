@@ -16,6 +16,10 @@ div-banner{
        color: #ffffff;
        
    }
+
+   .font-link{
+     text-decoration: none;
+   }
    
    @media only screen  and (max-width:739px){
      .font-banner{
@@ -41,5 +45,6 @@ div-banner{
  .img-banner{
      display: flex;
      width: 100%;
+     height: 100%;
  
  }

@@ -45,7 +45,7 @@ function StudentRegistration() {
             isSubmitting,
             isValid,
           }) => (
-            <form className=" content-box font-student" onSubmit={handleSubmit} noValidate>
+            <form className=" content-box font-student body-login" onSubmit={handleSubmit} noValidate>
               <h1>Login</h1>
               <br />
               <h2>CPF</h2>{" "}
@@ -59,7 +59,7 @@ function StudentRegistration() {
                 required
               />
               <br />
-              <br />
+             
               <h2>Senha</h2>{" "}
               <Input
                 className="inputs"

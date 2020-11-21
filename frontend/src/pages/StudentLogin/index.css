@@ -3,21 +3,29 @@
   justify-content: center;
 }
 .font-student {
-  font-family: 'Montserrat', sans-serif;
   line-height: 30px;
 }
 .container-box {
   height: 100%;
-  }
-.content-box {
-  color: #ffffff;
-  opacity: 70%;
-  background-color:gray;
-  /* height: 57%; */
-  width: 50%;
-  text-align: center;
 }
 
+.content-box {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 30%;
+  background-color: gray;
+  border-radius: 20px;
+  opacity: 70%;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+ 
+}
+.body-login{
+  width: 40%;
+  height: 55%;
+}
 .inputs {
   background-color: #ffffff;
   width: 70%;
@@ -26,9 +34,8 @@
   border: none;
 }
 
-
 .font-link-style {
-  color: #333A56;
+  color: #333a56;
   font-weight: bolder;
   text-decoration: none;
 }
@@ -38,10 +45,10 @@
   height: 10%;
   font-weight: bolder;
   color: #ffffff;
- opacity: 20;
-  background-color: #333A56 ;
+  opacity: 20;
+  background-color: #333a56;
   border-radius: 10px;
   box-sizing: border-box;
-  
+
   box-decoration-break: slice;
 }

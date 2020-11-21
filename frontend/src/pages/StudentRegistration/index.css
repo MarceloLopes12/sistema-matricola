@@ -4,15 +4,24 @@
 }
 .container-box {
   height: 100%;
-  }
+}
+
 .content-box {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 30%;
+  background-color: gray;
+  border-radius: 20px;
+  opacity: 70%;
   color: #ffffff;
-  
-  background-color:gray;
-  
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.body-registration{
   height: 68%;
   width: 50%;
-  text-align: center;
 }
 
 .inputs-registration {
@@ -23,14 +32,13 @@
   border: none;
 }
 
-
 .font-link-style-registration {
-  color: #333A56;
+  color: #333a56;
   font-weight: bolder;
   text-decoration: none;
 }
 .font-registration {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 30px;
 }
 
@@ -39,10 +47,10 @@
   height: 10%;
   font-weight: bolder;
   color: #ffffff;
- opacity: 20;
-  background-color: #333A56 ;
+  opacity: 20;
+  background-color: #333a56;
   border-radius: 10px;
   box-sizing: border-box;
-  
+
   box-decoration-break: slice;
 }

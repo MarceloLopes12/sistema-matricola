@@ -1,15 +1,39 @@
-/* .flex-box {
+.flex-box {
   display: flexbox;
   justify-content: center;
 }
 .container-box {
   height: 100%;
-  background-color: #ffffff;
-
 }
 .content-box {
-  color: #303c5b;
-  font-family: 'Montserrat', sans-serif;
-  line-height: 30px;
-  background-color: #ffffff;
-} */
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 30%;
+  background-color: gray;
+  border-radius: 20px;
+  opacity: 70%;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.body-college-enrollment {
+  width: 50%;
+}
+
+.div-select {
+  width: 270px; /* Tamanho final do select */
+  overflow: hidden; /* Esconde o conteúdo que passar do tamanho especificado */
+}
+.select-style {
+  background-color: #333a56;
+  width: 290px;
+  height: 80px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  padding: 13px 20px 13px 12px;
+  color: #fff;
+  text-indent: 0.05px;
+  text-align: center;
+}
