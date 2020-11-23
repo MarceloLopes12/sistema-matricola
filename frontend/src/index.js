@@ -7,7 +7,6 @@ import Homepage from "./pages/Homepage";
 import StudentRegistration from "./pages/StudentRegistration";
 import StudentLogin from "./pages/StudentLogin";
 import CollegeEnrollment from "./pages/CollegeEnrollment";
-import SelectSubjects from "./pages/Subjects";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -24,9 +23,6 @@ ReactDOM.render(
       </Route>
       <Route path="/escolha-curso-graduacao">
         <CollegeEnrollment />
-      </Route>
-      <Route path="/escolha-disciplina">
-        <SelectSubjects />
       </Route>
       <Route path="*">
         <Homepage />

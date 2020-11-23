@@ -74,7 +74,7 @@ function StudentRegistration() {
             isSubmitting,
             isValid,
           }) => (
-            <form className="content-box font-registration" onSubmit={handleSubmit} noValidate>
+            <form className="content-box body-registration font-registration" onSubmit={handleSubmit} noValidate>
               <h1>Cadastre-se</h1>
               <br />
               <Input
