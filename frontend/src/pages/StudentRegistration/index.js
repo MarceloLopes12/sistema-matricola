@@ -6,13 +6,7 @@ import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
 import "../StudentRegistration/index.css";
 import BannerBackground from "../../components/Banner";
-import { useCreateStudent } from "../../api/UseCreateStudent";
-
-
 function StudentRegistration() {
-  
-  const createStudent = useCreateStudent();
-  
   const validationSchema = yup.object().shape({
     fullName: yup.string().required(ERRORS.REQUIRED_FIELD),
     email: yup.string().email().required(ERRORS.REQUIRED_FIELD),
@@ -31,25 +25,11 @@ function StudentRegistration() {
     cpf: "",
   };
 
-  const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    
-    const { fullName, password, email, cpf } = values;
-
-    console.log(fullName);
-
-    const user = await createStudent.creater(fullName, email, cpf, password);
-    
-    localStorage.setItem("user", JSON.stringify({
-      id : user.id,
-      name: user.name,
-      email: user.email,
-      registration: user.registration
-    }));
-    
-    //window.sessionStorage.setItem("user", values.username);
-    //window.sessionStorage.setItem("password", values.password);
-    //window.sessionStorage.setItem("email", values.email);
-    //window.sessionStorage.setItem("cpf", values.cpf);
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    window.sessionStorage.setItem("user", values.username);
+    window.sessionStorage.setItem("password", values.password);
+    window.sessionStorage.setItem("email", values.email);
+    window.sessionStorage.setItem("cpf", values.cpf);
     resetForm(initialValues);
     setSubmitting(false);
   };
@@ -74,14 +54,18 @@ function StudentRegistration() {
             isSubmitting,
             isValid,
           }) => (
-            <form className="content-box body-registration font-registration" onSubmit={handleSubmit} noValidate>
+            <form
+              className="content-box body-registration font-registration"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <h1>Cadastre-se</h1>
               <br />
               <Input
                 className="inputs-registration"
                 name="email"
                 type="email"
-                label="Informe seu email"
+                placeholder="Informe seu email"
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -95,7 +79,7 @@ function StudentRegistration() {
                 className="inputs-registration"
                 name="fullName"
                 type="text"
-                label="Defina um usuário"
+                placeholder="Defina seu usuário"
                 value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -109,6 +93,7 @@ function StudentRegistration() {
                 className="inputs-registration"
                 name="password"
                 type="password"
+                placeholder="Senha"
                 label="Defina uma senha"
                 value={values.password}
                 onChange={handleChange}
@@ -122,6 +107,7 @@ function StudentRegistration() {
                 className="inputs-registration"
                 name="cpf"
                 label="Digite o cpf"
+                placeholder="Cpf"
                 value={values.cpf}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -131,31 +117,19 @@ function StudentRegistration() {
               />
               <br />
               <br />
-              <Input
-                className="inputs-registration"
-                name="passwordConfirmation"
-                type="password"
-                label="Confirme uma senha"
-                value={values.passwordConfirmation}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                errorMessage={
-                  touched.passwordConfirmation && errors.passwordConfirmation
-                }
-                required
-              />
-              <br />
-              <br />
 
-              <Button
-                className="button-registration"
-                type="submit"
-                disabled={!isValid || isSubmitting}
-                appearance="primary"
-                block
-              >
-                Cadastrar
-              </Button>
+              <Link to={"/escolha-curso-graduacao"}>
+                <Button
+                  className="button-registration"
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                  appearance="primary"
+                 
+                  block
+                >
+                  Cadastrar
+                </Button>
+              </Link>
 
               <p>
                 <Link

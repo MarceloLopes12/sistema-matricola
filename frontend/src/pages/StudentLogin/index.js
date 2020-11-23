@@ -6,12 +6,8 @@ import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
 import BannerBackground from "../../components/Banner";
 import "../StudentLogin/index.css";
-import { useSessions } from "../../api/UseSession";
 
 function StudentRegistration() {
-  
-  const session = useSessions();
-  
   const validationSchema = yup.object().shape({
     cpf: yup.string().required(ERRORS.REQUIRED_FIELD),
     password: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -22,16 +18,9 @@ function StudentRegistration() {
     cpf: "",
   };
 
-  const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    
-    const { cpf, password} = values;
-
-    const user = await session.logar(cpf, password);
-
-    localStorage.setItem("user", JSON.stringify(user))
-    
-    //window.sessionStorage.setItem("password", values.password);
-    //window.sessionStorage.setItem("cpf", values.cpf);
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    window.sessionStorage.setItem("password", values.password);
+    window.sessionStorage.setItem("cpf", values.cpf);
     resetForm(initialValues);
     setSubmitting(false);
   };
@@ -84,14 +73,18 @@ function StudentRegistration() {
               />
               <br />
               <br />
-              <Button variant="primary" size="lg"
-               className="button"
-               type="submit"
-               disabled={!isValid || isSubmitting}
-               appearance="primary"
-               block>
-                Entrat
-              </Button>
+              <Link to={"/escolha-curso-graduacao"}>
+                <Button
+                  className="button-registration"
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                  appearance="primary"
+                 
+                  block
+                >
+                  Entrar
+                </Button>
+              </Link>
               
               <p>
                 <Link className="font-link-style" to={"/registro-estudante"}>
