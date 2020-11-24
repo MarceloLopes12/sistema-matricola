@@ -160,10 +160,7 @@ function StudentRegistration() {
               </Button>
 
               <p>
-                <Link
-                  className="font-link-style-registration"
-                  to={"/login-estudante"}
-                >
+                <Link className="font-link-style-registration" to={"/"}>
                   Já tem uma conta? Faça Login{" "}
                 </Link>
               </p>
