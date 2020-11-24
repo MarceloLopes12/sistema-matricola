@@ -1,6 +1,6 @@
 import React from "react";
-import { Button, Input, Label } from "reactstrap";
-import { Formik } from "formik";
+import { Button, Input} from "reactstrap";
+import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
@@ -45,32 +45,39 @@ function StudentRegistration() {
             isSubmitting,
             isValid,
           }) => (
-            <form className=" content-box font-student body-login" onSubmit={handleSubmit} noValidate>
+            <form
+              className=" content-box font-student body-login"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <h1>Login</h1>
               <br />
-              <h2>CPF</h2>{" "}
+
               <Input
                 className="inputs"
                 name="cpf"
                 value={values.cpf}
+                placeholder="Digite aqui seu cpf"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.cpf && errors.cpf}
                 required
               />
               <br />
-             
-              <h2>Senha</h2>{" "}
+              <ErrorMessage className="errors" component="div" name="cpf" />
+              <br />
+
               <Input
                 className="inputs"
                 name="password"
                 type="password"
                 value={values.password}
+                placeholder="Digite aqui sua senha"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.password && errors.password}
                 required
               />
+               <br />
+              <ErrorMessage className="errors" component="div" name="password" />
               <br />
               <br />
               <Link to={"/escolha-curso-graduacao"}>
@@ -79,13 +86,12 @@ function StudentRegistration() {
                   type="submit"
                   disabled={!isValid || isSubmitting}
                   appearance="primary"
-                 
                   block
                 >
                   Entrar
                 </Button>
               </Link>
-              
+
               <p>
                 <Link className="font-link-style" to={"/registro-estudante"}>
                   {" "}

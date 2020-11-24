@@ -20,7 +20,7 @@
 }
 
 .body-registration{
-  height: 68%;
+  height: 70%;
   width: 50%;
 }
 
@@ -53,4 +53,10 @@
   box-sizing: border-box;
 
   box-decoration-break: slice;
+}
+
+.errors{
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
 }

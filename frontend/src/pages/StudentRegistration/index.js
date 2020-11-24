@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Input } from "reactstrap";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
@@ -73,49 +73,56 @@ function StudentRegistration() {
                 required
               />
               <br />
+              <ErrorMessage className="errors" component="div" name="email" />
               <br />
 
               <Input
                 className="inputs-registration"
                 name="fullName"
                 type="text"
-                placeholder="Defina seu usuário"
+                placeholder="Digite seu nome completo"
                 value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.fullName && errors.fullName}
                 required
               />
               <br />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="fullName"
+              />
               <br />
 
               <Input
                 className="inputs-registration"
                 name="password"
                 type="password"
-                placeholder="Senha"
-                label="Defina uma senha"
+                placeholder="Defina uma senha"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.password && errors.password}
                 required
               />
               <br />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="password"
+              />
               <br />
               <Input
                 className="inputs-registration"
                 name="cpf"
-                label="Digite o cpf"
-                placeholder="Cpf"
+                placeholder="Digite aqui seu CPF"
                 value={values.cpf}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.cpf && errors.cpf}
                 mask=""
                 required
               />
               <br />
+              <ErrorMessage className="errors" component="div" name="cpf" />
               <br />
 
               <Link to={"/escolha-curso-graduacao"}>
@@ -124,7 +131,6 @@ function StudentRegistration() {
                   type="submit"
                   disabled={!isValid || isSubmitting}
                   appearance="primary"
-                 
                   block
                 >
                   Cadastrar

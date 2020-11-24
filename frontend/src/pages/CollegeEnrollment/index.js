@@ -47,7 +47,7 @@ function CollegeEnrollment() {
           <br />
           <h1>Selecione as disciplinas </h1>
           <InputGroup>
-            <h2>Primeiro semestre</h2>
+            <h2> Disciplinas do primeiro semestre</h2>
             <InputGroupAddon addonType="prepend">
               <InputGroupText>
                 <Input addon type="checkbox" />
