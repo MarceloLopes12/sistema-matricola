@@ -1,14 +1,23 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Button, Input } from "reactstrap";
 import { Formik } from "formik";
-import * as yup from "yup";
-import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
+import * as yup from "yup";
+
+import { ERRORS } from "../../config/constants";
+
+import api from "../../service/api";
+
 import "../StudentRegistration/index.css";
+
 import BannerBackground from "../../components/Banner";
+
 function StudentRegistration() {
+  const history = useHistory();
+
   const validationSchema = yup.object().shape({
-    fullName: yup.string().required(ERRORS.REQUIRED_FIELD),
+    name: yup.string().required(ERRORS.REQUIRED_FIELD),
     email: yup.string().email().required(ERRORS.REQUIRED_FIELD),
     cpf: yup.string().required(ERRORS.REQUIRED_FIELD),
     password: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -18,18 +27,23 @@ function StudentRegistration() {
   });
 
   const initialValues = {
-    fullName: "",
+    email: "",
+    name: "",
     password: "",
     passwordConfirmation: "",
-    email: "",
     cpf: "",
   };
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    window.sessionStorage.setItem("user", values.username);
-    window.sessionStorage.setItem("password", values.password);
-    window.sessionStorage.setItem("email", values.email);
-    window.sessionStorage.setItem("cpf", values.cpf);
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    const data = { ...values };
+
+    try {
+      await api.post("students", data);
+
+      history.push("/login-estudante");
+    } catch {
+      alert("Falha no cadastro, tente novamente.");
+    }
     resetForm(initialValues);
     setSubmitting(false);
   };
@@ -77,13 +91,13 @@ function StudentRegistration() {
 
               <Input
                 className="inputs-registration"
-                name="fullName"
+                name="name"
                 type="text"
-                placeholder="Defina seu usuário"
-                value={values.fullName}
+                placeholder="Seu nome"
+                value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.fullName && errors.fullName}
+                errorMessage={touched.name && errors.name}
                 required
               />
               <br />
@@ -105,6 +119,23 @@ function StudentRegistration() {
               <br />
               <Input
                 className="inputs-registration"
+                name="passwordConfirmation"
+                type="password"
+                placeholder="Confirme sua senha"
+                label="Confirme sua senha"
+                value={values.passwordConfirmation}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={
+                  touched.passwordConfirmation && errors.passwordConfirmation
+                }
+                required
+              />
+
+              <br />
+              <br />
+              <Input
+                className="inputs-registration"
                 name="cpf"
                 label="Digite o cpf"
                 placeholder="Cpf"
@@ -118,18 +149,15 @@ function StudentRegistration() {
               <br />
               <br />
 
-              <Link to={"/escolha-curso-graduacao"}>
-                <Button
-                  className="button-registration"
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                  appearance="primary"
-                 
-                  block
-                >
-                  Cadastrar
-                </Button>
-              </Link>
+              <Button
+                className="button-registration"
+                type="submit"
+                disabled={!isValid || isSubmitting}
+                appearance="primary"
+                block
+              >
+                Cadastrar
+              </Button>
 
               <p>
                 <Link

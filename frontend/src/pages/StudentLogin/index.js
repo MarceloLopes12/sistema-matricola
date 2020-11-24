@@ -1,13 +1,21 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { Button, Input, Label } from "reactstrap";
 import { Formik } from "formik";
-import * as yup from "yup";
-import { ERRORS } from "../../config/constants";
 import { Link } from "react-router-dom";
-import BannerBackground from "../../components/Banner";
+import * as yup from "yup";
+
+import { ERRORS } from "../../config/constants";
+
+import api from "../../service/api";
+
 import "../StudentLogin/index.css";
 
+import BannerBackground from "../../components/Banner";
+
 function StudentRegistration() {
+  const history = useHistory();
+
   const validationSchema = yup.object().shape({
     cpf: yup.string().required(ERRORS.REQUIRED_FIELD),
     password: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -18,9 +26,20 @@ function StudentRegistration() {
     cpf: "",
   };
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    window.sessionStorage.setItem("password", values.password);
-    window.sessionStorage.setItem("cpf", values.cpf);
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      const response = await api.post("sessions", {
+        cpf: values.cpf,
+        password: values.password,
+      });
+
+      localStorage.setItem("studentName", response.data.name);
+      localStorage.setItem("studentId", response.data.id);
+
+      history.push("/escolha-curso-graduacao");
+    } catch (error) {
+      alert("Falha no login, tente novamente.");
+    }
     resetForm(initialValues);
     setSubmitting(false);
   };
@@ -45,7 +64,11 @@ function StudentRegistration() {
             isSubmitting,
             isValid,
           }) => (
-            <form className=" content-box font-student body-login" onSubmit={handleSubmit} noValidate>
+            <form
+              className=" content-box font-student body-login"
+              onSubmit={handleSubmit}
+              noValidate
+            >
               <h1>Login</h1>
               <br />
               <h2>CPF</h2>{" "}
@@ -59,7 +82,6 @@ function StudentRegistration() {
                 required
               />
               <br />
-             
               <h2>Senha</h2>{" "}
               <Input
                 className="inputs"
@@ -73,19 +95,15 @@ function StudentRegistration() {
               />
               <br />
               <br />
-              <Link to={"/escolha-curso-graduacao"}>
-                <Button
-                  className="button-registration"
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                  appearance="primary"
-                 
-                  block
-                >
-                  Entrar
-                </Button>
-              </Link>
-              
+              <Button
+                className="button-registration"
+                type="submit"
+                disabled={!isValid || isSubmitting}
+                appearance="primary"
+                block
+              >
+                Entrar
+              </Button>
               <p>
                 <Link className="font-link-style" to={"/registro-estudante"}>
                   {" "}
