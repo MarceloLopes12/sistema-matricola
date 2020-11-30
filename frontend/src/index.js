@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Homepage from "./pages/Homepage";
+import StudentHomepage from "./pages/StudentHomepage";
 import StudentRegistration from "./pages/StudentRegistration";
 import StudentLogin from "./pages/StudentLogin";
 import CollegeEnrollment from "./pages/CollegeEnrollment";
@@ -11,9 +11,6 @@ import CollegeEnrollment from "./pages/CollegeEnrollment";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/Homepage">
-        <Homepage />
-      </Route>
       <Route path="/registro-estudante">
         <StudentRegistration />
       </Route>
@@ -24,8 +21,13 @@ ReactDOM.render(
       <Route path="/escolha-curso-graduacao">
         <CollegeEnrollment />
       </Route>
+
+      <Route path="/pagina-inicial-aluno">
+        <StudentHomepage />
+      </Route>
+     
       <Route path="*">
-        <Homepage />
+        <StudentRegistration />
       </Route>
     </Switch>
   </BrowserRouter>,

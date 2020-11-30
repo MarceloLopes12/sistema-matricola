@@ -1,13 +1,13 @@
 import React from "react";
-import { Button, Input} from "reactstrap";
+import { Button, Input } from "reactstrap";
 import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import BannerBackground from "../../components/Banner";
 import "../StudentLogin/index.css";
 
-function StudentRegistration() {
+function StudentRegistration({ history }) {
   const validationSchema = yup.object().shape({
     cpf: yup.string().required(ERRORS.REQUIRED_FIELD),
     password: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -18,10 +18,18 @@ function StudentRegistration() {
     cpf: "",
   };
 
-  const onSubmit = (values, { setSubmitting, resetForm }) => {
-    window.sessionStorage.setItem("password", values.password);
-    window.sessionStorage.setItem("cpf", values.cpf);
-    resetForm(initialValues);
+  const onSubmit = (values, { setSubmitting }) => {
+    setSubmitting(true);
+
+    const cpf = window.sessionStorage.getItem("cpf");
+    const password = window.sessionStorage.getItem("password");
+
+    if (cpf && password && values.cpf === cpf && values.password === password) {
+      history.push("/cadastro-estudante");
+    } else {
+      alert("Senha ou cpf incorretos");
+    }
+
     setSubmitting(false);
   };
 
@@ -76,24 +84,29 @@ function StudentRegistration() {
                 onBlur={handleBlur}
                 required
               />
-               <br />
-              <ErrorMessage className="errors" component="div" name="password" />
+              <br />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="password"
+              />
               <br />
               <br />
-              <Link to={"/escolha-curso-graduacao"}>
-                <Button
-                  className="button-registration"
-                  type="submit"
-                  disabled={!isValid || isSubmitting}
-                  appearance="primary"
-                  block
-                >
-                  Entrar
-                </Button>
-              </Link>
+
+              <Button
+                className="button-registration"
+                type="submit"
+                disabled={!isValid || isSubmitting}
+                appearance="primary"
+                block
+                as={Link}
+                to={"/escolha-curso-graduacao"}
+              >
+                Entrar
+              </Button>
 
               <p>
-                <Link className="font-link-style" to={"/registro-estudante"}>
+                <Link className="font-link-style" to={"/pagina-inicial-aluno"}>
                   {" "}
                   Não tem conta? Cadastre-se
                 </Link>
@@ -106,4 +119,4 @@ function StudentRegistration() {
   );
 }
 
-export default StudentRegistration;
+export default withRouter(StudentRegistration);

@@ -6,17 +6,19 @@ import {
   InputGroupAddon,
   InputGroupText,
   Label,
+  Jumbotron,
 } from "reactstrap";
 import BannerBackground from "../../components/Banner";
 import "../CollegeEnrollment/index.css";
-import { Link } from "react-router-dom";
+
 
 function CollegeEnrollment() {
   return (
     <>
       <BannerBackground />
-      <div className="flex-box container-box">
-        <form className="body-college-enrollment content-box">
+
+      <form className="body-college-enrollment content-box">
+        <div className="container-box">
           <h1>Conclua sua matrícula</h1>
           <h2>Selecione o curso desejado</h2>
 
@@ -32,17 +34,10 @@ function CollegeEnrollment() {
             <option>Pedagogia</option>
           </Input>
           <br />
-          <h1>Selecione o campus desejado</h1>
-          <Input
-            className="div-select select-style"
-            type="select"
-            name="select-campus"
-          >
-            <option>Campus Zona Norte</option>
-            <option>Campus Zona Sul</option>
-            <option>Campus Canoas</option>
-            <option>Campus Orfanatrófio</option>
-          </Input>
+          <h1>Campus disponível</h1>
+          <Jumbotron className="jumbotron-college-enrollment">
+            <p>Campus Zona Sul</p>
+          </Jumbotron>
 
           <br />
           <h1>Selecione as disciplinas </h1>
@@ -68,14 +63,12 @@ function CollegeEnrollment() {
             </InputGroupAddon>
           </InputGroup>
           <br />
-
-          <div className="buttons-container">
-            <Button type="submit" appearance="primary" block>
-              Continuar
-            </Button>
-          </div>
-        </form>
-      </div>
+          <br />
+          <Button className="button" type="submit" appearance="primary" block>
+            Continuar
+          </Button>
+        </div>
+      </form>
     </>
   );
 }
