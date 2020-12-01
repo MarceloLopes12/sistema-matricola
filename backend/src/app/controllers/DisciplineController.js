@@ -4,7 +4,7 @@ import CourseDiscipline from '../models/CourseDiscipline';
 
 class DisciplineController {
   async show(req, res) {
-    const { id_course } = req.body;
+    const id_course = req.params.id;
 
     const disciplines = await CourseDiscipline.findAll({
       where: { id_course },

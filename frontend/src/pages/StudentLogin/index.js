@@ -1,13 +1,21 @@
 import React from "react";
-import { Button, Input } from "reactstrap";
-import { Formik, ErrorMessage } from "formik";
+import { useHistory } from "react-router-dom";
+import { Button, Input, Label } from "reactstrap";
+import { Formik } from "formik";
+import { Link } from "react-router-dom";
 import * as yup from "yup";
+
 import { ERRORS } from "../../config/constants";
-import { Link, withRouter } from "react-router-dom";
-import BannerBackground from "../../components/Banner";
+
+import api from "../../service/api";
+
 import "../StudentLogin/index.css";
 
-function StudentRegistration({ history }) {
+import BannerBackground from "../../components/Banner";
+
+function StudentRegistration() {
+  const history = useHistory();
+
   const validationSchema = yup.object().shape({
     cpf: yup.string().required(ERRORS.REQUIRED_FIELD),
     password: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -18,18 +26,21 @@ function StudentRegistration({ history }) {
     cpf: "",
   };
 
-  const onSubmit = (values, { setSubmitting }) => {
-    setSubmitting(true);
+  const onSubmit = async (values, { setSubmitting, resetForm }) => {
+    try {
+      const response = await api.post("sessions", {
+        cpf: values.cpf,
+        password: values.password,
+      });
 
-    const cpf = window.sessionStorage.getItem("cpf");
-    const password = window.sessionStorage.getItem("password");
+      localStorage.setItem("studentName", response.data.name);
+      localStorage.setItem("studentId", response.data.id);
 
-    if (cpf && password && values.cpf === cpf && values.password === password) {
-      history.push("/cadastro-estudante");
-    } else {
-      alert("Senha ou cpf incorretos");
+      history.push("/escolha-curso-graduacao");
+    } catch (error) {
+      alert("Falha no login, tente novamente.");
     }
-
+    resetForm(initialValues);
     setSubmitting(false);
   };
 
@@ -60,53 +71,41 @@ function StudentRegistration({ history }) {
             >
               <h1>Login</h1>
               <br />
-
+              <h2>CPF</h2>{" "}
               <Input
                 className="inputs"
                 name="cpf"
                 value={values.cpf}
-                placeholder="Digite aqui seu cpf"
                 onChange={handleChange}
                 onBlur={handleBlur}
+                errorMessage={touched.cpf && errors.cpf}
                 required
               />
               <br />
-              <ErrorMessage className="errors" component="div" name="cpf" />
-              <br />
-
+              <h2>Senha</h2>{" "}
               <Input
                 className="inputs"
                 name="password"
                 type="password"
                 value={values.password}
-                placeholder="Digite aqui sua senha"
                 onChange={handleChange}
                 onBlur={handleBlur}
+                errorMessage={touched.password && errors.password}
                 required
               />
               <br />
-              <ErrorMessage
-                className="errors"
-                component="div"
-                name="password"
-              />
               <br />
-              <br />
-
               <Button
                 className="button-registration"
                 type="submit"
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
                 block
-                as={Link}
-                to={"/escolha-curso-graduacao"}
               >
                 Entrar
               </Button>
-
               <p>
-                <Link className="font-link-style" to={"/pagina-inicial-aluno"}>
+                <Link className="font-link-style" to={"/registro-estudante"}>
                   {" "}
                   Não tem conta? Cadastre-se
                 </Link>
@@ -119,4 +118,4 @@ function StudentRegistration({ history }) {
   );
 }
 
-export default withRouter(StudentRegistration);
+export default StudentRegistration;

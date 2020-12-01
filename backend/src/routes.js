@@ -16,7 +16,7 @@ routes.post('/sessions', SessionController.store);
 routes.get('/courses', CourseController.index);
 
 // Disciplines by course
-routes.get('/disciplinesByCourse', DisciplineController.show);
+routes.get('/disciplinesByCourse/:id', DisciplineController.show);
 
 // Registrations
 routes.post('/registrations', RegistrationController.store);

@@ -1,5 +1,5 @@
 .flex-box {
-  display: flexbox;
+  display: flex;
   justify-content: center;
 }
 .container-box {
@@ -19,8 +19,8 @@
   margin-right: 25%;
 }
 
-.body-registration{
-  height: 70%;
+.body-registration {
+  height: 68%;
   width: 50%;
 }
 
@@ -53,10 +53,4 @@
   box-sizing: border-box;
 
   box-decoration-break: slice;
-}
-
-.errors{
-  color: red;
-  font-weight: bold;
-  font-size: 14px;
 }

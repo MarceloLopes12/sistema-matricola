@@ -5,16 +5,13 @@ import {
   CardTitle,
   CardSubtitle,
   Table,
-  Tooltip,
   UncontrolledTooltip,
 } from "reactstrap";
 import BannerBackground from "../../components/Banner";
 import "../StudentHomepage/index.css";
 
 function StudentHomepage() {
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-
-  const toggle = () => setTooltipOpen(!tooltipOpen);
+  
   return (
     <>
       <BannerBackground />
