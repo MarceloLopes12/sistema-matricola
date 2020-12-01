@@ -1,23 +1,14 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { Button, Input } from "reactstrap";
-import { Formik } from "formik";
-import { Link } from "react-router-dom";
+import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
-
 import { ERRORS } from "../../config/constants";
-
-import api from "../../service/api";
-
+import { Link } from "react-router-dom";
 import "../StudentRegistration/index.css";
-
 import BannerBackground from "../../components/Banner";
-
 function StudentRegistration() {
-  const history = useHistory();
-
   const validationSchema = yup.object().shape({
-    name: yup.string().required(ERRORS.REQUIRED_FIELD),
+    fullName: yup.string().required(ERRORS.REQUIRED_FIELD),
     email: yup.string().email().required(ERRORS.REQUIRED_FIELD),
     cpf: yup.string().required(ERRORS.REQUIRED_FIELD),
     password: yup.string().required(ERRORS.REQUIRED_FIELD),
@@ -27,23 +18,18 @@ function StudentRegistration() {
   });
 
   const initialValues = {
-    email: "",
-    name: "",
+    fullName: "",
     password: "",
     passwordConfirmation: "",
+    email: "",
     cpf: "",
   };
 
-  const onSubmit = async (values, { setSubmitting, resetForm }) => {
-    const data = { ...values };
-
-    try {
-      await api.post("students", data);
-
-      history.push("/login-estudante");
-    } catch {
-      alert("Falha no cadastro, tente novamente.");
-    }
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    window.sessionStorage.setItem("user", values.username);
+    window.sessionStorage.setItem("password", values.password);
+    window.sessionStorage.setItem("email", values.email);
+    window.sessionStorage.setItem("cpf", values.cpf);
     resetForm(initialValues);
     setSubmitting(false);
   };
@@ -87,80 +73,75 @@ function StudentRegistration() {
                 required
               />
               <br />
+              <ErrorMessage className="errors" component="div" name="email" />
               <br />
 
               <Input
                 className="inputs-registration"
-                name="name"
+                name="fullName"
                 type="text"
-                placeholder="Seu nome"
-                value={values.name}
+                placeholder="Digite seu nome completo"
+                value={values.fullName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.name && errors.name}
                 required
               />
               <br />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="fullName"
+              />
               <br />
 
               <Input
                 className="inputs-registration"
                 name="password"
                 type="password"
-                placeholder="Senha"
-                label="Defina uma senha"
+                placeholder="Defina uma senha"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.password && errors.password}
                 required
               />
               <br />
-              <br />
-              <Input
-                className="inputs-registration"
-                name="passwordConfirmation"
-                type="password"
-                placeholder="Confirme sua senha"
-                label="Confirme sua senha"
-                value={values.passwordConfirmation}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                errorMessage={
-                  touched.passwordConfirmation && errors.passwordConfirmation
-                }
-                required
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="password"
               />
-
-              <br />
               <br />
               <Input
                 className="inputs-registration"
                 name="cpf"
-                label="Digite o cpf"
-                placeholder="Cpf"
+                placeholder="Digite aqui seu CPF"
                 value={values.cpf}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.cpf && errors.cpf}
                 mask=""
                 required
               />
               <br />
+              <ErrorMessage className="errors" component="div" name="cpf" />
               <br />
 
-              <Button
-                className="button-registration"
-                type="submit"
-                disabled={!isValid || isSubmitting}
-                appearance="primary"
-                block
-              >
-                Cadastrar
-              </Button>
+              <Link to={"/escolha-curso-graduacao"}>
+                <Button
+                  className="button-registration"
+                  type="submit"
+                  disabled={!isValid || isSubmitting}
+                  appearance="primary"
+                  block
+                >
+                  Cadastrar
+                </Button>
+              </Link>
 
               <p>
-                <Link className="font-link-style-registration" to={"/"}>
+                <Link
+                  className="font-link-style-registration"
+                  to={"/login-estudante"}
+                >
                   Já tem uma conta? Faça Login{" "}
                 </Link>
               </p>
