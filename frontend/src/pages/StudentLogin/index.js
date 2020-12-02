@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Input, Label } from "reactstrap";
+import { Button, Input} from "reactstrap";
 import { Formik } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
