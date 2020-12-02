@@ -20,9 +20,8 @@
   text-align: center;
   margin-left: 25%;
   margin-right: 25%;
- 
 }
-.body-login{
+.body-login {
   width: 40%;
   height: 80%;
 }
@@ -39,6 +38,7 @@
   font-weight: bolder;
   text-decoration: none;
 }
+
 
 .button {
   width: 30%;
@@ -58,3 +58,4 @@
   font-weight: bold;
   font-size: 14px;
 }
+

@@ -41,16 +41,3 @@
   font-family: "Montserrat", sans-serif;
   line-height: 30px;
 }
-
-.button-registration {
-  width: 30%;
-  height: 10%;
-  font-weight: bolder;
-  color: #ffffff;
-  opacity: 20;
-  background-color: #333a56;
-  border-radius: 10px;
-  box-sizing: border-box;
-
-  box-decoration-break: slice;
-}
