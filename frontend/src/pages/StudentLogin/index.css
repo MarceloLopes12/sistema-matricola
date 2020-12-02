@@ -20,9 +20,8 @@
   text-align: center;
   margin-left: 25%;
   margin-right: 25%;
- 
 }
-.body-login{
+.body-login {
   width: 40%;
   height: 80%;
 }
@@ -38,17 +37,4 @@
   color: #333a56;
   font-weight: bolder;
   text-decoration: none;
-}
-
-.button {
-  width: 30%;
-  height: 10%;
-  font-weight: bolder;
-  color: #ffffff;
-  opacity: 20;
-  background-color: #333a56;
-  border-radius: 10px;
-  box-sizing: border-box;
-
-  box-decoration-break: slice;
 }
