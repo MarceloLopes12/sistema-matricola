@@ -23,10 +23,10 @@ function StudentHomepage() {
       >
         <Card>
           <CardBody className="">
-            <CardTitle tag="h2">
+            <CardTitle tag="h3">
               Consulte aqui o status de sua matrícula
             </CardTitle>
-            <CardSubtitle tag="h3" className="mb-2 text-muted">
+            <CardSubtitle tag="h4" className="mb-2 text-muted">
               Inserir aqui integração variável do curso
             </CardSubtitle>
             <br />
