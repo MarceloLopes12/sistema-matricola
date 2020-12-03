@@ -37,7 +37,7 @@
   color: #333a56;
   font-weight: bolder;
   text-decoration: none;
-
+}
 
 .button {
   width: 30%;
@@ -52,10 +52,8 @@
   box-decoration-break: slice;
 }
 
-.errors{
+.errors {
   color: red;
   font-weight: bold;
   font-size: 14px;
 }
-
-

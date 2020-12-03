@@ -13,7 +13,7 @@ export default function Routes() {
         <Route path="/" exact component={StudentLogin} />
         <Route path="/registro-estudante" component={StudentRegistration} />
         <Route path="/escolha-curso-graduacao" component={CollegeEnrollment} />
-          <Route path="/pagina-inicial-estudante" component={StudentHomepage} />
+        <Route path="/estudante" component={StudentHomepage} />
       </Switch>
     </BrowserRouter>
   );

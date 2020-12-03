@@ -10,7 +10,6 @@ import {
 import BannerBackground from "../../components/Banner";
 import api from "../../service/api";
 import "../CollegeEnrollment/index.css";
-import { Link } from "react-router-dom";
 
 function CollegeEnrollment() {
   const [courses, setCourses] = useState([]);
@@ -189,7 +188,7 @@ function CollegeEnrollment() {
           </InputGroup>
           <br />
           <br />
-          <Button className="button" type="submit" appearance="primary" as={Link} to={"/pagina-inicial-estudante"} block>
+          <Button className="button" type="submit" appearance="primary" block>
             Continuar
           </Button>
         </form>

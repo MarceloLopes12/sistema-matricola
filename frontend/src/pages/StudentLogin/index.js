@@ -107,8 +107,6 @@ function StudentRegistration() {
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
                 block
-                as={Link}
-                to={"/pagina-inicial-estudante"}
               >
                 Entrar
               </Button>
