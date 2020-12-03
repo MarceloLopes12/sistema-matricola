@@ -1,0 +1,56 @@
+.flex-box {
+  display: flex;
+  justify-content: center;
+}
+.container-box{
+  height: 860px;
+  width: 100%;
+}
+.content-box {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 30%;
+  background-color: gray;
+  border-radius: 20px;
+  opacity: 70%;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.table-list{
+ 
+    border-collapse: collapse;
+    width: 100%;
+    padding: 40px;
+  
+  
+}
+thead {
+  text-align: center;
+  font-size: italic;
+  border: 0.3rem solid #333a56;
+  padding-bottom: 0.3rem;
+
+
+}
+
+thead th{
+  background-color: #333a56;
+  color: white;
+  height: 7%;
+  border: 0.3rem solid #333a56;
+
+}
+
+tbody{
+  text-align: center;
+  border: 3% solid #333a56;
+
+}
+
+tbody td{
+  border: 0.3rem solid #333a56;
+  height: 5%;
+
+}

@@ -1,17 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Button, Input } from "reactstrap";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-
 import { ERRORS } from "../../config/constants";
-
 import api from "../../service/api";
-
 import "../StudentRegistration/index.css";
-
 import BannerBackground from "../../components/Banner";
+import MaskedInput from "react-maskedinput";
 
 function StudentRegistration() {
   const history = useHistory();
@@ -86,6 +83,7 @@ function StudentRegistration() {
                 errorMessage={touched.email && errors.email}
                 required
               />
+               <ErrorMessage className="errors" component="div" name="email" />
               <br />
               <br />
 
@@ -100,6 +98,7 @@ function StudentRegistration() {
                 errorMessage={touched.name && errors.name}
                 required
               />
+               <ErrorMessage className="errors" component="div" name="name" />
               <br />
               <br />
 
@@ -115,6 +114,7 @@ function StudentRegistration() {
                 errorMessage={touched.password && errors.password}
                 required
               />
+               <ErrorMessage className="errors" component="div" name="password" />
               <br />
               <br />
               <Input
@@ -131,29 +131,31 @@ function StudentRegistration() {
                 }
                 required
               />
+               <ErrorMessage className="errors" component="div" name="password" />
 
               <br />
               <br />
-              <Input
-                className="inputs-registration"
+              <MaskedInput
+                placeholder="CPF"
                 name="cpf"
-                label="Digite o cpf"
-                placeholder="Cpf"
+                required
+                className="inputs"
+                mask="111.111.111-11"
                 value={values.cpf}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.cpf && errors.cpf}
-                mask=""
-                required
               />
+               <ErrorMessage className="errors" component="div" name="cpf" />
               <br />
               <br />
 
               <Button
-                className="button-registration"
+                className="button"
                 type="submit"
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
+                as={Link}
+                to={"/escolha-curso-graduacao"}
                 block
               >
                 Cadastrar

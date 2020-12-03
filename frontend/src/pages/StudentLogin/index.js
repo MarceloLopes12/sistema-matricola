@@ -1,16 +1,13 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Button, Input, Label } from "reactstrap";
-import { Formik } from "formik";
+import { Button, Input } from "reactstrap";
+import { Formik, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
-
+import MaskedInput from "react-maskedinput";
 import { ERRORS } from "../../config/constants";
-
 import api from "../../service/api";
-
 import "../StudentLogin/index.css";
-
 import BannerBackground from "../../components/Banner";
 
 function StudentRegistration() {
@@ -71,36 +68,47 @@ function StudentRegistration() {
             >
               <h1>Login</h1>
               <br />
-              <h2>CPF</h2>{" "}
-              <Input
-                className="inputs"
+
+              <MaskedInput
+                placeholder="CPF"
                 name="cpf"
+                required
+                className="inputs"
+                mask="111.111.111-11"
                 value={values.cpf}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.cpf && errors.cpf}
-                required
               />
+              <ErrorMessage className="errors" component="div" name="cpf" />
               <br />
-              <h2>Senha</h2>{" "}
+              <br />
+
               <Input
                 className="inputs"
                 name="password"
                 type="password"
+                placeholder="Senha"
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 errorMessage={touched.password && errors.password}
                 required
               />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="password"
+              />
               <br />
               <br />
               <Button
-                className="button-registration"
+                className="button"
                 type="submit"
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
                 block
+                as={Link}
+                to={"/pagina-inicial-estudante"}
               >
                 Entrar
               </Button>

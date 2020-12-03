@@ -37,4 +37,25 @@
   color: #333a56;
   font-weight: bolder;
   text-decoration: none;
+
+
+.button {
+  width: 30%;
+  height: 10%;
+  font-weight: bolder;
+  color: #ffffff;
+  opacity: 20;
+  background-color: #333a56;
+  border-radius: 10px;
+  box-sizing: border-box;
+
+  box-decoration-break: slice;
 }
+
+.errors{
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+

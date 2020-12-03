@@ -19,7 +19,7 @@ function BannerBackground() {
   }
 
   return (
-    <div className="div-banner">
+    <div className="div-banner">      
       <img alt="Matriculando" className="img-banner" fixed="top" src={Banner} />
       <header className="title">
         {studentId && studentName ? (
