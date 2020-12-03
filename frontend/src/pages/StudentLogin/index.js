@@ -33,7 +33,15 @@ function StudentRegistration() {
       localStorage.setItem("studentName", response.data.name);
       localStorage.setItem("studentId", response.data.id);
 
-      history.push("/escolha-curso-graduacao");
+      const existsEnrolledStudent = await api.get(
+        `registrations/${response.data.id}`
+      );
+
+      if (existsEnrolledStudent.data.length > 0) {
+        history.push("/estudante");
+      } else {
+        history.push("/escolha-curso-graduacao");
+      }
     } catch (error) {
       alert("Falha no login, tente novamente.");
     }

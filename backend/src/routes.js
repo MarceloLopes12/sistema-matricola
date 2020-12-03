@@ -20,7 +20,7 @@ routes.get('/disciplinesByCourse/:id', DisciplineController.show);
 
 // Registrations
 routes.post('/registrations', RegistrationController.store);
-routes.get('/registrations', RegistrationController.index);
+routes.get('/registrations/:idStudent', RegistrationController.index);
 routes.get('/registrations/:idStudent', RegistrationController.show);
 
 export default routes;

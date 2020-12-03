@@ -58,10 +58,10 @@ class RegistrationController {
   }
 
   async index(req, res) {
-    const { id_student } = req.body;
+    const { idStudent } = req.params;
 
     const disciplines = await StudentDiscipline.findAll({
-      where: { id_student },
+      where: { id_student: idStudent },
     });
 
     return res.json(disciplines);

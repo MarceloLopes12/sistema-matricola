@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Input,
   Button,
@@ -12,6 +13,8 @@ import api from "../../service/api";
 import "../CollegeEnrollment/index.css";
 
 function CollegeEnrollment() {
+  const history = useHistory();
+
   const [courses, setCourses] = useState([]);
   const [campus, setCampus] = useState([]);
   const [disciplines, setdisciplines] = useState([]);
@@ -108,7 +111,7 @@ function CollegeEnrollment() {
 
       alert(mensagem);
 
-      //TO DO rediecionamento
+      history.push("/estudante");
     } catch {}
   }
 
