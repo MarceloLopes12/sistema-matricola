@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Card,
   CardBody,
@@ -7,11 +7,30 @@ import {
   Table,
   UncontrolledTooltip,
 } from "reactstrap";
+
+import api from "../../service/api";
+
 import BannerBackground from "../../components/Banner";
+
 import "../StudentHomepage/index.css";
 
 function StudentHomepage() {
-  
+  const [disciplines, setDisciplines] = useState([]);
+
+  const studentId = localStorage.getItem("studentId");
+
+  useEffect(() => {
+    api
+      .get("registrations", {
+        headers: {
+          Authorization: studentId,
+        },
+      })
+      .then((response) => {
+        setDisciplines(response.data);
+      });
+  }, [studentId]);
+
   return (
     <>
       <BannerBackground />
@@ -23,13 +42,6 @@ function StudentHomepage() {
       >
         <Card>
           <CardBody className="">
-            <CardTitle tag="h3">
-              Consulte aqui o status de sua matrícula
-            </CardTitle>
-            <CardSubtitle tag="h4" className="mb-2 text-muted">
-              Inserir aqui integração variável do curso
-            </CardSubtitle>
-            <br />
             <p>
               Consulte o número minímo de alunos para esta turma{" "}
               <span
@@ -52,12 +64,12 @@ function StudentHomepage() {
               <thead>
                 <tr>
                   <th>Professor</th>
-                  <th>Quantidade alunos cadastrados</th>
+                  <th>Disciplina</th>
                   <th>Campus</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                {/* <tr>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>
@@ -71,7 +83,7 @@ function StudentHomepage() {
                   <td>Larry</td>
                   <td>the Bird</td>
                   <td>@twitter</td>
-                </tr>
+                </tr> */}
               </tbody>
             </Table>
             <br />

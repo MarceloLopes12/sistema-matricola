@@ -1,5 +1,6 @@
 import Discipline from '../models/Discipline';
 import Campus from '../models/Campus';
+import Professor from '../models/Professor';
 import Class from '../models/Class';
 import StudentDiscipline from '../models/StudentDiscipline';
 
@@ -68,7 +69,7 @@ class RegistrationController {
   }
 
   async show(req, res) {
-    const { idStudent } = req.params;
+    const idStudent = req.headers.authorization;
 
     const disciplines = await StudentDiscipline.findAll({
       where: {
@@ -84,6 +85,11 @@ class RegistrationController {
             {
               model: Campus,
               as: 'campus',
+              attributes: ['name'],
+            },
+            {
+              model: Professor,
+              as: 'professor',
               attributes: ['name'],
             },
           ],
