@@ -1,43 +1,41 @@
-.flex-box {
+
+.student-registration_container-box {
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
   display: flex;
   justify-content: center;
 }
-.container-box {
-  height: 100%;
-}
 
-.content-box {
+.student-registration_content-box {
   font-family: "Montserrat", sans-serif;
-  position: absolute;
-  top: 30%;
   background-color: gray;
   border-radius: 20px;
   opacity: 70%;
   color: #ffffff;
   text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
 }
 
-.body-registration {
-  height: 68%;
-  width: 50%;
+.student-registration_body-registration {
+  width: 40%;
+  min-width: 450px;
 }
 
-.inputs-registration {
+.student-registration_inputs-registration {
   background-color: #ffffff;
   width: 70%;
-  height: 50px;
+  height: 40px;
+  padding-left: 10px;
   border-radius: 8px;
   border: none;
 }
 
-.font-link-style-registration {
+.student-registration_font-link-style-registration {
   color: #333a56;
   font-weight: bolder;
   text-decoration: none;
 }
-.font-registration {
+.student-registration_font-registration {
   font-family: "Montserrat", sans-serif;
   line-height: 30px;
 }

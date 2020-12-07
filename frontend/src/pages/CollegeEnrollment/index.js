@@ -10,7 +10,7 @@ import {
 } from "reactstrap";
 import BannerBackground from "../../components/Banner";
 import api from "../../service/api";
-import "../CollegeEnrollment/index.css";
+import "./college-entollment.css";
 
 function CollegeEnrollment() {
   const history = useHistory();
@@ -118,16 +118,16 @@ function CollegeEnrollment() {
   return (
     <>
       <BannerBackground />
-      <div className="flex-box container-box">
+      <div className="college-entollment_container-box">
         <form
-          className="body-college-enrollment content-box"
+          className="college-entollment_body-college-enrollment college-entollment_content-box"
           onSubmit={onSubmit}
         >
           <h1>Conclua sua matrícula</h1>
           <h2>Selecione o curso desejado</h2>
 
           <Input
-            className="div-select select-style"
+            className="college-entollment_div-select college-entollment_select-style"
             type="select"
             name="select-graduation"
             onChange={(event) => {
@@ -146,7 +146,7 @@ function CollegeEnrollment() {
           <br />
           <h1>Selecione o campus desejado</h1>
           <Input
-            className="div-select select-style"
+            className="college-entollment_div-select college-entollment_select-style"
             type="select"
             name="select-campus"
             onChange={(event) => {
@@ -189,9 +189,7 @@ function CollegeEnrollment() {
               </InputGroupText>
             </InputGroupAddon>
           </InputGroup>
-          <br />
-          <br />
-          <Button className="button" type="submit" appearance="primary" block>
+          <Button className="college-entollment_button" type="submit" appearance="primary" block>
             Continuar
           </Button>
         </form>

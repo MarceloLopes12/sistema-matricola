@@ -1,31 +1,30 @@
-.flex-box {
-  display: flexbox;
-  justify-content: center;
-}
-.font-student {
+
+.student-login_font-student {
   line-height: 30px;
 }
-.container-box {
-  height: 100%;
+
+.student-login_container-box {
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
 }
 
-.content-box {
+.student-login_content-box {
   font-family: "Montserrat", sans-serif;
-  position: absolute;
-  top: 30%;
-  background-color: gray;
+   background-color: gray;
   border-radius: 20px;
   opacity: 70%;
   color: #ffffff;
   text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
 }
-.body-login {
+
+.student-login_body-login {
   width: 40%;
-  height: 80%;
+  min-width: 450px;
 }
-.inputs {
+.student-login_inputs {
   background-color: #ffffff;
   width: 70%;
   height: 50px;
@@ -33,13 +32,13 @@
   border: none;
 }
 
-.font-link-style {
+.student-login_font-link-style {
   color: #333a56;
   font-weight: bolder;
   text-decoration: none;
 }
 
-.button {
+.student-login_button {
   width: 30%;
   height: 10%;
   font-weight: bolder;
@@ -52,7 +51,7 @@
   box-decoration-break: slice;
 }
 
-.errors {
+.student-login_errors {
   color: red;
   font-weight: bold;
   font-size: 14px;

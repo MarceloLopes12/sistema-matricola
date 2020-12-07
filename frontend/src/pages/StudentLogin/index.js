@@ -7,7 +7,7 @@ import * as yup from "yup";
 import MaskedInput from "react-maskedinput";
 import { ERRORS } from "../../config/constants";
 import api from "../../service/api";
-import "../StudentLogin/index.css";
+import "./student-login.css";
 import BannerBackground from "../../components/Banner";
 
 function StudentRegistration() {
@@ -52,7 +52,7 @@ function StudentRegistration() {
   return (
     <>
       <BannerBackground />
-      <div className="flex-box container-box">
+      <div className="student-login_container-box">
         <Formik
           validationSchema={validationSchema}
           initialValues={initialValues}
@@ -70,7 +70,7 @@ function StudentRegistration() {
             isValid,
           }) => (
             <form
-              className=" content-box font-student body-login"
+              className="student-login_content-box student-login_font-student student-login_body-login"
               onSubmit={handleSubmit}
               noValidate
             >
@@ -81,18 +81,18 @@ function StudentRegistration() {
                 placeholder="CPF"
                 name="cpf"
                 required
-                className="inputs"
+                className="student-login_inputs"
                 mask="111.111.111-11"
                 value={values.cpf}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-              <ErrorMessage className="errors" component="div" name="cpf" />
+              <ErrorMessage className="student-login_errors" component="div" name="cpf" />
               <br />
               <br />
 
               <Input
-                className="inputs"
+                className="student-login_inputs"
                 name="password"
                 type="password"
                 placeholder="Senha"
@@ -103,14 +103,14 @@ function StudentRegistration() {
                 required
               />
               <ErrorMessage
-                className="errors"
+                className="student-login_errors"
                 component="div"
                 name="password"
               />
               <br />
               <br />
               <Button
-                className="button"
+                className="student-login_button"
                 type="submit"
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
@@ -119,7 +119,7 @@ function StudentRegistration() {
                 Entrar
               </Button>
               <p>
-                <Link className="font-link-style" to={"/registro-estudante"}>
+                <Link className="student-login_font-link-style" to={"/registro-estudante"}>
                   {" "}
                   Não tem conta? Cadastre-se
                 </Link>
