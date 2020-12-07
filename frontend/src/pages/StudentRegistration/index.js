@@ -37,7 +37,7 @@ function StudentRegistration() {
     try {
       await api.post("students", data);
 
-      history.push("/escolha-curso-graduacao");
+      history.push("/");
     } catch {
       alert("Falha no cadastro, tente novamente.");
     }
@@ -83,7 +83,7 @@ function StudentRegistration() {
                 errorMessage={touched.email && errors.email}
                 required
               />
-               <ErrorMessage className="errors" component="div" name="email" />
+              <ErrorMessage className="errors" component="div" name="email" />
               <br />
               <br />
 
@@ -98,7 +98,7 @@ function StudentRegistration() {
                 errorMessage={touched.name && errors.name}
                 required
               />
-               <ErrorMessage className="errors" component="div" name="name" />
+              <ErrorMessage className="errors" component="div" name="name" />
               <br />
               <br />
 
@@ -114,7 +114,11 @@ function StudentRegistration() {
                 errorMessage={touched.password && errors.password}
                 required
               />
-               <ErrorMessage className="errors" component="div" name="password" />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="password"
+              />
               <br />
               <br />
               <Input
@@ -131,7 +135,11 @@ function StudentRegistration() {
                 }
                 required
               />
-               <ErrorMessage className="errors" component="div" name="password" />
+              <ErrorMessage
+                className="errors"
+                component="div"
+                name="password"
+              />
 
               <br />
               <br />
@@ -145,7 +153,7 @@ function StudentRegistration() {
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
-               <ErrorMessage className="errors" component="div" name="cpf" />
+              <ErrorMessage className="errors" component="div" name="cpf" />
               <br />
               <br />
 
@@ -155,14 +163,16 @@ function StudentRegistration() {
                 disabled={!isValid || isSubmitting}
                 appearance="primary"
                 as={Link}
-                to={"/escolha-curso-graduacao"}
                 block
               >
                 Cadastrar
               </Button>
 
               <p>
-                <Link className="student-registration_font-link-style-registration" to={"/"}>
+                <Link
+                  className="student-registration_font-link-style-registration"
+                  to={"/"}
+                >
                   Já tem uma conta? Faça Login{" "}
                 </Link>
               </p>
