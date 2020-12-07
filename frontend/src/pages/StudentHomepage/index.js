@@ -10,7 +10,7 @@ import api from "../../service/api";
 
 import BannerBackground from "../../components/Banner";
 
-import "../StudentHomepage/index.css";
+import "./student-homepage.css";
 
 function StudentHomepage() {
   const [disciplines, setDisciplines] = useState([]);
@@ -34,10 +34,10 @@ function StudentHomepage() {
     <>
       <BannerBackground />
 
-      <div className="container-box">
-        <div className="content-box" >
+      <div className="student-homepage_container-box">
+        <div className="student-homepage_content-box" >
           <Card>
-            <CardBody className="">
+            <CardBody>
               {/* <p>
                 Consulte o número minímo de alunos para esta turma{" "}
                 <span
@@ -55,8 +55,9 @@ function StudentHomepage() {
               >
                 10 alunos.
               </UncontrolledTooltip> */}
+              <h1>Lista de cadeiras matriculadas</h1>
               <br />
-              <Table className="table-list" dark>
+              <Table className="student-homepage_table-list" dark>
                 <thead>
                   <tr>
                     <th>Professor</th>

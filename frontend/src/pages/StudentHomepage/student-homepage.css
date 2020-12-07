@@ -1,56 +1,51 @@
-.flex-box {
+
+.student-homepage_container-box {
+  width: 100%;
+  padding-top: 100px;
+  margin-bottom: 5%;
   display: flex;
   justify-content: center;
 }
-.container-box{
-  height: 860px;
-  width: 100%;
-}
-.content-box {
+.student-homepage_content-box {
+  padding: 20px;
   font-family: "Montserrat", sans-serif;
-  position: absolute;
-  top: 30%;
   background-color: gray;
   border-radius: 20px;
   opacity: 70%;
   color: #ffffff;
   text-align: center;
-  margin-left: 25%;
-  margin-right: 25%;
+  width: 70%;
+  min-width: 450px;
 }
-.table-list{
- 
+.student-homepage_table-list {
     border-collapse: collapse;
     width: 100%;
-    padding: 40px;
-  
-  
+    padding: 40px;  
 }
-thead {
+
+.student-homepage_container-box thead {
   text-align: center;
   font-size: italic;
+  width: 100%;
   border: 0.3rem solid #333a56;
   padding-bottom: 0.3rem;
-
-
 }
 
-thead th{
+.student-homepage_container-box thead th {
   background-color: #333a56;
   color: white;
   height: 7%;
   border: 0.3rem solid #333a56;
-
+  padding: 10px;
 }
 
-tbody{
+.student-homepage_container-box tbody {
   text-align: center;
   border: 3% solid #333a56;
-
 }
 
-tbody td{
+.student-homepage_container-box tbody td {
   border: 0.3rem solid #333a56;
   height: 5%;
-
+  padding: 5px;
 }

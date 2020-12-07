@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { ERRORS } from "../../config/constants";
 import api from "../../service/api";
-import "../StudentRegistration/index.css";
 import BannerBackground from "../../components/Banner";
 import MaskedInput from "react-maskedinput";
+import "./student-registration.css";
 
 function StudentRegistration() {
   const history = useHistory();
@@ -37,7 +37,7 @@ function StudentRegistration() {
     try {
       await api.post("students", data);
 
-      history.push("/login-estudante");
+      history.push("/escolha-curso-graduacao");
     } catch {
       alert("Falha no cadastro, tente novamente.");
     }
@@ -48,7 +48,7 @@ function StudentRegistration() {
   return (
     <>
       <BannerBackground />
-      <div className="flex-box container-box">
+      <div className="student-registration_container-box">
         <Formik
           validationSchema={validationSchema}
           initialValues={initialValues}
@@ -66,14 +66,14 @@ function StudentRegistration() {
             isValid,
           }) => (
             <form
-              className="content-box body-registration font-registration"
+              className="student-registration_content-box student-registration_body-registration student-registration_font-registration"
               onSubmit={handleSubmit}
               noValidate
             >
               <h1>Cadastre-se</h1>
               <br />
               <Input
-                className="inputs-registration"
+                className="student-registration_inputs-registration"
                 name="email"
                 type="email"
                 placeholder="Informe seu email"
@@ -88,7 +88,7 @@ function StudentRegistration() {
               <br />
 
               <Input
-                className="inputs-registration"
+                className="student-registration_inputs-registration"
                 name="name"
                 type="text"
                 placeholder="Seu nome"
@@ -103,7 +103,7 @@ function StudentRegistration() {
               <br />
 
               <Input
-                className="inputs-registration"
+                className="student-registration_inputs-registration"
                 name="password"
                 type="password"
                 placeholder="Senha"
@@ -118,7 +118,7 @@ function StudentRegistration() {
               <br />
               <br />
               <Input
-                className="inputs-registration"
+                className="student-registration_inputs-registration"
                 name="passwordConfirmation"
                 type="password"
                 placeholder="Confirme sua senha"
@@ -139,7 +139,7 @@ function StudentRegistration() {
                 placeholder="CPF"
                 name="cpf"
                 required
-                className="inputs"
+                className="student-registration_inputs-registration"
                 mask="111.111.111-11"
                 value={values.cpf}
                 onChange={handleChange}
@@ -162,10 +162,11 @@ function StudentRegistration() {
               </Button>
 
               <p>
-                <Link className="font-link-style-registration" to={"/"}>
+                <Link className="student-registration_font-link-style-registration" to={"/"}>
                   Já tem uma conta? Faça Login{" "}
                 </Link>
               </p>
+              <br />
             </form>
           )}
         </Formik>
